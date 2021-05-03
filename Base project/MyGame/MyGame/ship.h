@@ -15,8 +15,10 @@
 		Couldn't you just define the methods after the object instantiation?  Maby if a prototype is used instead of a virtual function
 		it would only accept one definition and you couldn't overwrite it later in the program... 
 
-		^!? revaluate if the statement "you could instead define the unique functions after the object is instantiated..." is valid in
-		this context.  Emphasis on "after the object is instantiated".
+			^!? revaluate if the statement "you could instead define the unique functions after the object is instantiated..." is valid in
+			this context.  Emphasis on "after the object is instantiated".
+
+			^! the procedure described in the second paragraph would involve two classes, not a class and an object
 
 		>? Double colon (::) for specifying a namespace, single colon (:) for modifing namespace?
 
@@ -50,6 +52,8 @@
 			~ capitalized things named `ship`
 			! tried renameing ship.h to Ship.h and a popup said I couldn't because something with 
 			that name already existed in it's location.
+			+ added to notes
+		5/3/2021 AD/CE:
 			+ added to notes
 
 ===================================
