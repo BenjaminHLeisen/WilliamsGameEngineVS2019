@@ -60,7 +60,7 @@
 */
 
 #pragma once
-#include "Engine/GameEngine.h" //< `Engine/...` is needed as GameEngine.h isn't located in the same file as ship.h?
+#include "Engine/GameEngine.h" //< `Engine/...` is needed as GameEngine.h isn't located in the same file as ship.h
 
 class Ship : public GameObject
 {
@@ -68,7 +68,9 @@ class Ship : public GameObject
 		Ship();
 		void draw();
 	private:
-		sf::Sprite sprite_; //< if `sprite_` in an entire class instance, then why is it called an instance variable in the tutorial?
+		sf::Sprite sprite_; //< The tutorial says that `sprite_` is a class instance and an instance variable. 
+							//  Can something be considered a class and a variable?
+							//	^ Well string seems to be a class since it has methods and we still consider it a type of variable.
 };
-typedef std::shared_ptr<Ship> ShipPtr;
+typedef std::shared_ptr<Ship> ShipPtr; //
 
