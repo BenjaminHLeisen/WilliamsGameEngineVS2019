@@ -21,6 +21,8 @@ Maintenance Log:
 		+ added `Ship::draw()` function definition
 			^+ added note
 		+ added to notes section
+	5/5/2021 AD/CE:
+		+~ added to and modified comment in method, `Ship()`, definition
 
 
 
@@ -31,7 +33,13 @@ Maintenance Log:
 
 Ship::Ship()
 {
-	sprite_.setTexture(GAME.getTexture("Resources/ship.png")); // The value of `setTexture` method, of object `sprite_`, of class `Sprite`, when passed the value of `getTexture` method of class `GAME` when passed the value of file `ship.png`, located in folder `Resources`, modifided by 
+	sprite_.setTexture(GAME.getTexture("Resources/ship.png"));//< `setTexture` method, of object `sprite_`, 
+															  // of class `Sprite`, being passed the value of `getTexture` 
+															  // method of the class at the address specified by the method 
+															  // `GAME`(Game::instance() <<<(Why isn't `instance()` called 
+															  // through dot notation and why does it have its definition in 
+															  // the `Game.h` file instead of a .cpp file?)) when given an argument 
+															  // of the value of file `ship.png`, located in folder `Resources`.
 	sprite_.setPosition(sf::Vector2f(100, 100));
 }
 
