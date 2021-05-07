@@ -23,7 +23,11 @@ Maintenance Log:
 		+ added to notes section
 	5/5/2021 AD/CE:
 		+~ added to and modified comment in method, `Ship()`, definition
-
+	5/6/2021 AD/CE:
+		+ created and included a new ship sprite, `5hip.bmp`, to the Resources folder
+		~ changed the ship image from `ship.png` to `5hip.bmp`
+		~!? attempted to use the the built in image editor on `5hip.bmp` and completely obliterated the image.
+		^~ relized it was missing a 5, so I copied one of the others.
 
 
 =========================
@@ -33,7 +37,7 @@ Maintenance Log:
 
 Ship::Ship()
 {
-	sprite_.setTexture(GAME.getTexture("Resources/ship.png"));//< `setTexture` method, of object `sprite_`, 
+	sprite_.setTexture(GAME.getTexture("Resources/5hip.bmp"));//< `setTexture` method, of object `sprite_`, 
 															  // of class `Sprite`, being passed the value of `getTexture` 
 															  // method of the class at the address specified by the method 
 															  // `GAME`(Game::instance() <<<(Why isn't `instance()` called 

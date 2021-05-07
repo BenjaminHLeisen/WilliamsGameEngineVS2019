@@ -15,6 +15,7 @@
     </ClCompile>
     <ClCompile Include="MyGame.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Ship.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\AnimatedSprite.h">
@@ -47,5 +48,13 @@
     <None Include="Resources\README.md">
       <Filter>Resources</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\5hip.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\ship.png">
+      <Filter>Resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>
