@@ -28,6 +28,8 @@ Maintenance Log:
 		~ changed the ship image from `ship.png` to `5hip.bmp`
 		~!? attempted to use the the built in image editor on `5hip.bmp` and completely obliterated the image.
 		^~ relized it was missing a 5, so I copied one of the others.
+	5/11/2021 AD/CE:
+		~ changed replaced the `draw` function in someplaces to try and get a better understanding of virtual functions
 
 
 =========================
@@ -47,8 +49,11 @@ Ship::Ship()
 	sprite_.setPosition(sf::Vector2f(100, 100));
 }
 
-void Ship::draw()
-{
+void Ship::drawT()//<! Why can't I call the `draw` method of `getRenderWindow`  when I rename the `draw` methond of class`Ship` to `drawT`?
+				  //	^ Maybe it's not that `draw` isn't being called, but perhaps `sprite_` doesn't like the renaming.
+				  //	^ I mean the rename doesn't seem like it should cause any problems since the original body it would have over writen doesn't have any code
+				  //	^ investigate `Scene.cpp`
+{ 
 	GAME.getRenderWindow().draw(sprite_);//< At first I thought that this line was indexing to a function inside the `getRenderWindow()` 
 										 // function (something that I'm not sure is even possible given the namespace restrictions and 
 										 // limmited lifetime of data within functions), but after mousing over `getRenderWindow()` 

@@ -64,7 +64,10 @@ private:
 	std::map<std::string, FontPtr> fonts_;
 
 	// The window we will draw to.
-	sf::RenderWindow window_;
+	sf::RenderWindow window_;//< though this doesn't have the parentheses, this seems to be 
+							 //  using the default constructor for the `RenderWindow` class
+							 //  to instantiate an object named `window_`
+
 
 	// A flag to prevent being initialized twice.
 	bool initialized_;

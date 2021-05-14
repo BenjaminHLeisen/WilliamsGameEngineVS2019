@@ -30,7 +30,7 @@
 				^~ amending in progress...
 
 		>? Double colon (::) for specifying a namespace, single colon (:) for modifing namespace?
-			^! single colon (:) to include a instantiating 
+			^! single colon (:) for making a dirived class from another class
 
 		virtual function overwriting:
 				
@@ -64,6 +64,10 @@
 			+ added to notes
 		5/10/2021 AD/CE:
 			~+ added to and modified notes section
+		5/11/2021 AD/CE:
+			+ added notes
+			~ replaced `draw` function prototype with `drawT` to try to get to know virtual functions better
+				^! the program ran, but doesn't display ship sprite anymore... interesting.
 
 ===================================
 */
@@ -74,9 +78,9 @@
 class Ship : public GameObject
 {
 	public:
-		Ship();
-		void draw();
-
+		Ship();//< why doesn't this constructor need to be a virtual function already present in `GameObject.h`?
+		void drawT();//< I thought the `Ship` class was the part of code that needed the prototype of
+					//  function `draw` to be within `GameObject.h`, but it ended up being something in `Scene.cpp` 
 	private:
 		sf::Sprite sprite_; //< The tutorial says that `sprite_` is a class instance and an instance variable. 
 							//  Can something be considered a class and a variable?
