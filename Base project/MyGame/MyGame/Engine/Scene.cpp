@@ -86,7 +86,9 @@ void Scene::updateGameObjects(sf::Time& time)
 // This function calls draw on each of our game objects.
 void Scene::drawGameObjects()
 {
-	for (auto& gameObject : gameObjects_)
+	for (auto& gameObject : gameObjects_) //<? this for loop doesn't seem to have a incremented variable, a run condition,
+										  //   or a break condition
+										  //   `gameObjects_` = list of `GameObjectPtr`s 
 	{
 		gameObject->draw();
 	}
