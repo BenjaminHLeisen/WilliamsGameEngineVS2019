@@ -24,7 +24,21 @@ void Scene::handleEvents()
 		}
 
 		// Send the event to every game object to handle if it so desires.
-		for (auto& gameObject : gameObjects_)
+		for (auto& gameObject : gameObjects_)//< how is `gameObject` inheriting from `gameObjects_` when 
+											 //`gameObjects_` is a list?
+											 //		^ I'm pretty sure non-primitive data types 
+											 //		are all just classes so this is fine
+											 //^ it's so weird that `auto&` is being used to reference a class,
+											 // while, at the same time, it seems to be a part of the declaration of 
+											 // the class it's refering to.
+											 //^ reference to class, `gameObject`, dirived from class `gameObjects_`,
+		//^reminder that the colon isn't
+		// being used to divide for loop 
+		// conponents such as increment, 
+		// initial, and looping condition, 
+		// semicolon is used for that.
+											 
+											
 		{
 			gameObject->handleEvent(event);
 		}
