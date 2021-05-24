@@ -31,16 +31,23 @@ void Scene::handleEvents()
 											 //^ it's so weird that `auto&` is being used to reference a class,
 											 // while, at the same time, it seems to be a part of the declaration of 
 											 // the class it's refering to.
-											 //^ reference to class, `gameObject`, dirived from class `gameObjects_`,
-		//^reminder that the colon isn't
+											 //^ Is this a foreach loop?
+											 //		^ for (*type* *parameter for holding currently selected member data* : *array argument*)? 
+
+		//^reminder that the colon isn't*
 		// being used to divide for loop 
-		// conponents such as increment, 
+		// components such as increment, 
 		// initial, and looping condition, 
 		// semicolon is used for that.
-											 
+		//		^ 
+		//		*Though in this case it is separating loop components 
+		//		because part of the syntax used for inheritance is 
+		//		reused for foreach loops.									 
 											
 		{
 			gameObject->handleEvent(event);
+			//        ^
+			// dereferencing argument
 		}
 	}
 }

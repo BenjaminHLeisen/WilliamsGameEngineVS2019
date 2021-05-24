@@ -44,6 +44,8 @@
 
 		> Class: a place to put functions and variables that can have verying levels of isolation from the rest of the code
 
+		> it seems that c++ references are automaticaly dereferenced pointers
+
 	Maintenance Log:
 	---------------------------------
 		4/26/2021 AD/CE:
@@ -68,6 +70,8 @@
 			+ added notes
 			~ replaced `draw` function prototype with `drawT` to try to get to know virtual functions better
 				^! the program ran, but doesn't display ship sprite anymore... interesting.
+		5/24/2021 AD/CE:
+			+ added to notes section
 
 ===================================
 */
@@ -79,8 +83,9 @@ class Ship : public GameObject
 {
 	public:
 		Ship();//< why doesn't this constructor need to be a virtual function already present in `GameObject.h`?
-		void drawT();//< I thought the `Ship` class was the part of code that needed the prototype of
-					//  function `draw` to be within `GameObject.h`, but it ended up being something in `Scene.cpp` 
+				//	^ this is a unique 
+		//void drawT();//< I thought the `Ship` class was the part of code that needed the prototype of
+		//			//  function `draw` to be within `GameObject.h`, but it ended up being something in `Scene.cpp` 
 	private:
 		sf::Sprite sprite_; //< The tutorial says that `sprite_` is a class instance and an instance variable. 
 							//  Can something be considered a class and a variable?
