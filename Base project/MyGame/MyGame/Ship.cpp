@@ -50,12 +50,13 @@ Ship::Ship()
 	sprite_.setPosition(sf::Vector2f(100, 100));
 }
 
-void Ship::drawT()//<! Why can't I call the `draw` method of `getRenderWindow`  when I rename the `draw` methond of class`Ship` to `drawT`?
-				  //	^ Maybe it's not that `draw` isn't being called, but perhaps `sprite_` doesn't like the renaming.
-				  //	^ I mean the rename doesn't seem like it should cause any problems since the original body it would have over writen doesn't have any code
-				  //	^ investigate `Scene.cpp`
-				  //		^ investigate the indexing used to access the contents of `gameObjects_` list in `Scene.h` 
-				  //		  to see if virtual functions are being used to simplify member selection.  
+//void Ship::drawT()//<! Why can't I call the `draw` method of `getRenderWindow`  when I rename the `draw` methond of class`Ship` to `drawT`?
+//				  //	^ Maybe it's not that `draw` isn't being called, but perhaps `sprite_` doesn't like the renaming.
+//				  //	^ I mean the rename doesn't seem like it should cause any problems since the original body it would have over writen doesn't have any code
+//				  //	^ investigate `Scene.cpp`
+//				  //		^ investigate the indexing used to access the contents of `gameObjects_` list in `Scene.h` 
+//				  //		  to see if virtual functions are being used to simplify member selection.  
+void Ship::draw()
 { 
 	GAME.getRenderWindow().draw(sprite_);//< At first I thought that this line was indexing to a function inside the `getRenderWindow()` 
 										 // function (something that I'm not sure is even possible given the namespace restrictions and 
@@ -66,4 +67,10 @@ void Ship::drawT()//<! Why can't I call the `draw` method of `getRenderWindow`  
 										 // so the engine can't automaticaly know... No, that doesn't seem right.  Does the engine need 
 										 // to keep track of multipule windows? 
 
-}										 
+}	
+const float SPEED = 0.3f;
+
+void Ship::update(sf::Time elapsed)
+{
+	
+}
