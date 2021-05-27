@@ -32,6 +32,9 @@ Maintenance Log:
 		~ changed replaced the `draw` function in someplaces to try and get a better understanding of virtual functions
 	5/20/2021 AD/CE:
 		+ added note
+	5/25/2021 AD/CE:
+		+ added notes
+		+ added some stuff for ship movement
 
 =========================
 */
@@ -68,9 +71,46 @@ void Ship::draw()
 										 // to keep track of multipule windows? 
 
 }	
-const float SPEED = 0.3f;
+const float SPEED = 0.3f;//< I was wondering what the "f" in "0.3f" was, and, from mousing 
+						 // over the section before and after taking it away, with the f it seems that whatever the prossess that 
+						 // creates float numbers, converts the 0.3 into 0.2999..., and those 9s go on for so long that 
+						 // the number is stored as a double format.  The "f" prevents this somehow and results in the 0.3 
+						 // being converted to something that can be stored in a regular float format.
 
 void Ship::update(sf::Time elapsed)
 {
-	
+	sf::Vector2f pos = sprite_.getPosition();
+	float x = pos.x;
+	float y = pos.y;
+	int msElapsed = elapsed.asMilliseconds();
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))//< Interesting how you can do operations with 
+														// classes without instantiating them.
+														// seems to work about the same as if you 
+														// were using an instance of `Keyboard`, except that 
+														// you use `::` to call methods instead of dot notation
+	{
+		x += SPEED * msElapsed;
+	}
+
+	if (sf::Keyboard::isKeyPressed((sf::Keyboard::Key)71))// :)
+	{
+		x -= SPEED * msElapsed;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		y -= SPEED * msElapsed;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		y += SPEED * msElapsed;
+	}
+	//sprite_.setPosition(sf::Vector2f(x, y));//< this is how the position is set in the tutorial, but I don't see why they 
+	//										  // don't just use the `pos` Vector2 `x` and `y` are already stored in.
+	sprite_.setPosition(pos); //let's see why!
+							  //^...
+							  //	^Ok so neither of them work, must need to add something that was ommited.
+
 }
