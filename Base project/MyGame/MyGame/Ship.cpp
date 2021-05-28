@@ -40,6 +40,9 @@ Maintenance Log:
 */
 
 #include "ship.h"
+#include <conio.h>
+#include <stdio.h>
+#include <string>
 
 Ship::Ship()
 {
@@ -77,12 +80,13 @@ const float SPEED = 0.3f;//< I was wondering what the "f" in "0.3f" was, and, fr
 						 // the number is stored as a double format.  The "f" prevents this somehow and results in the 0.3 
 						 // being converted to something that can be stored in a regular float format.
 
-void Ship::update(sf::Time elapsed)
+void Ship::update(sf::Time& elapsed)
 {
 	sf::Vector2f pos = sprite_.getPosition();
-	float x = pos.x;
-	float y = pos.y;
+	float& x = pos.x;
+	float& y = pos.y;
 	int msElapsed = elapsed.asMilliseconds();
+	std::printf("msElapsed = %i\n", msElapsed); //debug for checking elapsed time
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))//< Interesting how you can do operations with 
 														// classes without instantiating them.
@@ -108,9 +112,31 @@ void Ship::update(sf::Time elapsed)
 		y += SPEED * msElapsed;
 	}
 	//sprite_.setPosition(sf::Vector2f(x, y));//< this is how the position is set in the tutorial, but I don't see why they 
-	//										  // don't just use the `pos` Vector2 `x` and `y` are already stored in.
-	sprite_.setPosition(pos); //let's see why!
+	//										  // don't just use the `pos` Vector2f `x` and `y` are already stored in.
+
+	sprite_.setPosition(pos); //< let's see why!
 							  //^...
-							  //	^Ok so neither of them work, must need to add something that was ommited.
+							  //	^! Ok so neither of them work, must need to add something that was ommited.
+							  //		^ looks like I passed `elapsed` by value instead of reference.  Also didn't make the prototype's
+							  //		parameter a reference.
+							  //		^ if a class were to be passed to a function by value, and within that class some method keeps 
+							  //	track of when itself was last called, and if the copied version of the class is created and deleted 
+							  //	each time the function that creates it runs, the recorded time since the method was last called will 
+							  //	always be 0.  Perhaps the `.asMilliseconds()` is simmilar to such a method and `SPEED` is always being
+							  //	multiplied by 0
+							  //	^ trying to check the value of `msElapsed` through console messages yeilds no output.  
+							  //	Perhaps the method isn't being called due to the call having an incorrect argument type, 
+							  //	but I'd think that would have show up as an error. 
+							  //	^ passing `elapsed` by reference results in the value of `msElapsed` being printed to console
+							  //	but the ship still isn't moving.
+							  //	^ Setting the ship's position using the line provided by the tutorial enabled ship movement...
+							  //	don't know why though.
+							  //^ The `x` and `y` being altered in the if statements aren't the same variables as the `x` and
+							  // `y` stored in the `pos` Vector2f.
+							  //	^ making the `x` and `y` being altered references to the `x` and `y` in `pos` allows `pos` to be
+							  //	directly used for ship position setting.
+
+
+
 
 }

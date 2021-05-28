@@ -109,7 +109,8 @@ void Scene::drawGameObjects()
 {
 	for (auto& gameObject : gameObjects_) //<? this for loop doesn't seem to have a incremented variable, a run condition,
 										  //   or a break condition
-										  //   `gameObjects_` = list of `GameObjectPtr`s 
+										  //   `gameObjects_` = list of `GameObjectPtr`s
+										  //	^ because it's a foreach loop I think
 	{
 		gameObject->draw();
 	}

@@ -87,7 +87,7 @@ class Ship : public GameObject
 		///void drawT();//< I thought the `Ship` class was the part of code that needed the prototype of
 		///			//  function `draw` to be within `GameObject.h`, but it ended up being something in `Scene.cpp` 
 		void draw();
-		void update(sf::Time elapsed);
+		void update(sf::Time& elapsed);
 	private:
 		sf::Sprite sprite_; //< The tutorial says that `sprite_` is a class instance and an instance variable. 
 							//  Can something be considered a class and a variable?
